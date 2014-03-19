@@ -1,5 +1,5 @@
 (ns docs.cheat-sheet-gen
-  (:require [processing.core]))
+  (:require [quil.core]))
 
 (def cheat-sheet-start
   "
@@ -118,7 +118,7 @@
   \\section{Reflection}
   \\begin{tabularx}{\\hsize}{lX}
 API Exploration & \\cmd{doc-cats doc-fns doc-meths} \\\\
-Version & \\cmd{processing-version} \\\\
+Version & \\cmd{quil-version} \\\\
   \\end{tabularx}
 }
 
@@ -127,7 +127,7 @@ Version & \\cmd{processing-version} \\\\
 (defn cheat-sheet-dynamic
   []
   (let [colours (cycle ["blue2" "yellow" "purple" "green" "orange" "pink" "blue" "yellow" "grey" "red" "green" "blue" "pink" "yellow"])
-        info    (#'processing.core/sorted-category-map)
+        info    (#'quil.core/sorted-category-map)
         clean   (fn [s] (.replaceAll s "&" "\\\\&"))]
     (dorun
      (map (fn [[cat-idx cat-info] colour]
